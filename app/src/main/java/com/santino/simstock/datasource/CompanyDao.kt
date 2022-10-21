@@ -10,5 +10,5 @@ interface CompanyDao {
 
     @Transaction
     @Query("SELECT * FROM companies")
-    suspend fun getCompanies(): List<Company>
+    suspend fun getLastCompaniesValues(): List<Company>
 }

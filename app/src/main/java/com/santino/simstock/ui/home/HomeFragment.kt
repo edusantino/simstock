@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
     private fun setupObservers() {
         if (token.isFirstAccess()) {
             token.setFirstAccess(false)
-            viewModel.generateData()
+            viewModel.initCompanyData()
         } else {
             viewModel.loadCompanies()
         }
@@ -66,7 +66,9 @@ class HomeFragment : Fragment() {
     private fun setupListeners() {
         //binding.btnSortUp.setOnClickListener {  }
         //binding.btnSortDown.setOnClickListener {  }
-
+        binding.btnUpdate.setOnClickListener {
+            viewModel.updateCompanyData()
+        }
     }
 
     private fun fillCompanyAdapter(listCompanies: List<Company>) {

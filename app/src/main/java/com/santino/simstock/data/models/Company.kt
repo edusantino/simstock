@@ -12,5 +12,7 @@ data class Company(
     val code: String,
     val value: Double,
     val imgURL: String,
-    val valueGrowth: Double
+    val valueGrowth: Double,
+    val date: String,
+    val time: String,
 )

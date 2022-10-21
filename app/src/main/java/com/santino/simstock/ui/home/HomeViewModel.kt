@@ -8,6 +8,7 @@ abstract class HomeViewModel : ViewModel() {
     abstract val loadState: LiveData<Boolean>
     abstract val listCompanies: LiveData<List<Company>>
 
+    abstract fun initCompanyData()
     abstract fun loadCompanies()
-    abstract fun generateData()
+    abstract fun updateCompanyData()
 }

@@ -13,6 +13,21 @@ class HomeViewModelImpl(
     override val loadState = MutableLiveData(false)
     override val listCompanies =  MutableLiveData<List<Company>>()
 
+    override fun initCompanyData() {
+        viewModelScope.launch {
+            loadState.postValue(true)
+            try {
+                homeRepository.initCompanyData()
+                val companies = homeRepository.getAllCompanies()
+                listCompanies.postValue(companies)
+            } catch (t: Throwable) {
+                Log.e(TAG, "error on load: $t", )
+            } finally {
+                loadState.postValue(false)
+            }
+        }
+    }
+
     override fun loadCompanies() {
         viewModelScope.launch {
             loadState.postValue(true)
@@ -27,11 +42,11 @@ class HomeViewModelImpl(
         }
     }
 
-    override fun generateData() {
+    override fun updateCompanyData() {
         viewModelScope.launch {
             loadState.postValue(true)
             try {
-                homeRepository.initCompaniesData()
+                homeRepository.updateCompaniesData()
                 loadCompanies()
             } catch (t: Throwable) {
                 Log.e(TAG, "error on load: $t", )
