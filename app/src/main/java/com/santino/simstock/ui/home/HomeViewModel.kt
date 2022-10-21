@@ -1,13 +1,13 @@
 package com.santino.simstock.ui.home
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.santino.simstock.data.models.Company
 
-class HomeViewModel : ViewModel() {
+abstract class HomeViewModel : ViewModel() {
+    abstract val loadState: LiveData<Boolean>
+    abstract val listCompanies: LiveData<List<Company>>
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    abstract fun loadCompanies()
+    abstract fun generateData()
 }
