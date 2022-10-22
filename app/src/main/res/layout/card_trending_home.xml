@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivTrendingLogoHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:src="@drawable/img_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCompName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="12sp"
+            android:text="ADB"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/ivTrendingLogoHome"
+            app:layout_constraintStart_toEndOf="@+id/ivTrendingLogoHome" />
+
+        <TextView
+            android:id="@+id/tvCompCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="8sp"
+            android:text="Adobe"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompName"
+            app:layout_constraintStart_toStartOf="@+id/tvCompName" />
+
+        <TextView
+            android:id="@+id/tvCompValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:text="33.34"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompCode"
+            app:layout_constraintStart_toStartOf="@+id/ivTrendingLogoHome" />
+
+        <TextView
+            android:id="@+id/tvAmountValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="10sp"
+            android:text="$234.34"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompValue"
+            app:layout_constraintStart_toStartOf="@+id/ivTrendingLogoHome" />
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/viewPlot"
+            app:layout_constraintTop_toTopOf="@+id/tvCompName"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCompCode"
+            layout="@layout/tag_percent" />
+
+        <ImageView
+            android:id="@+id/viewPlot"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/plot"
+            app:layout_constraintTop_toTopOf="@+id/tvCompValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAmountValue"
+            app:layout_constraintStart_toEndOf="@+id/tvAmountValue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
